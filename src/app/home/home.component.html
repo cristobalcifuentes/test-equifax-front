@@ -1,0 +1,21 @@
+<div class="container my-5">
+    <h2 class="mb-4">Home</h2>
+    <div class="mb-3">
+      <label for="file-input" class="form-label">Select file:</label>
+      <input type="file" id="file-input" (change)="onFileChange($event)" class="form-control">
+      <button (click)="uploadFile()" class="btn btn-primary mt-2">Upload</button>
+    </div>
+    <button (click)="fetchData()" class="btn btn-secondary mb-3">Fetch Data</button>
+    <table *ngIf="data.length > 0" class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th *ngFor="let column of columns">{{ column }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of data">
+          <td *ngFor="let column of columns">{{ row[column] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
